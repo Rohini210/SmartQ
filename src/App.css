@@ -1,0 +1,20 @@
+.all {
+    width: 15em;
+    height: 6em;
+    background-color: burlywood;
+    margin: 1em;
+    text-align: center;
+    display: flex;
+    border-radius: 15px;
+}
+
+p {
+    padding: 0.5em;
+    font-weight: bold;
+    color: white
+}
+
+.sub_all {
+    display: flex;
+    flex-direction: row;
+}

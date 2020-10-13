@@ -1,20 +1,23 @@
-.all {
-    width: 15em;
-    height: 6em;
-    background-color: burlywood;
-    margin: 1em;
-    text-align: center;
-    display: flex;
-    border-radius: 15px;
+.app {
+    background-image: url(./image.jpg);
 }
 
 p {
     padding: 0.5em;
     font-weight: bold;
-    color: white
+    color: white;
+    background-color: rgb(157, 238, 157);
+    border-radius: 15px;
+    height: 10em;
+    width: 7em;
+    text-overflow: hidden;
 }
 
-.sub_all {
+.show_all {
     display: flex;
-    flex-direction: row;
+    border-radius: 15px;
+    margin: 1em;
+    border: 2px solid white;
 }
+
+.home {}

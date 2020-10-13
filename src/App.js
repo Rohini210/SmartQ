@@ -1,33 +1,26 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import "./App.css"
-import menu from "./Components/menu.json"
+import { FoodProvider } from "./Components/FoodContext"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Home from "./Components/Home"
+import All from "./Components/All"
+import Avail from "./Components/Avail"
+import NotAvail from "./Components/NotAvail"
 
 function App() {
-  const [global, setGlobal] = useState([])
-  const [item, setItem] = useState([])
-  const [avail, setAvail] = useState([])
-  const [notavail, setNotavail] = useState([])
-
-  const checkAvail = () => {
-    
-  }
-  useEffect(() => {
-    const data = [menu]
-    const temp = data.map((item) => item.menuDetails.EATORAMA)
-    setItem(...temp)
-    setGlobal(...temp)
-    setAvail(item.filter(i => i.ofs === false).map(i => i.foodname))
-    setNotavail(item.filter(i => i.ofs === true).map(i => i.foodname))
-  }, [])
-
-  console.log(avail)
-  console.log(notavail)
-
   return (
-    <div className="App">
-      <Home global={global} item={item} setItem={setItem} avail={avail} notavail={notavail} />
-    </div>
+    <Router>
+      <FoodProvider>
+        <div className="App">
+          <Switch>
+            <Route path="/all" exact component={All} />
+            <Route path="/avail" component={Avail} />
+            <Route path="/notavail" component={NotAvail} />
+          </Switch>
+          <Home />
+        </div>
+      </FoodProvider>
+    </Router>
   )
 }
 

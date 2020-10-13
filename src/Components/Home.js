@@ -1,27 +1,18 @@
 import React from "react"
-import All from "./All"
+import { Link } from "react-router-dom"
 
-export default function Home({ item, setItem, avail, notavail, global }) {
-  const showAllData = () => {
-    setItem(global)
-  }
-
-  const updateAvail = () => {
-    setItem(avail)
-  }
-
-  const updateUnavail = () => {
-    setItem(notavail)
-  }
-
+export default function Home() {  
   return (
-    <div>
-      <button onClick={showAllData}>All</button>
-      <button onClick={updateAvail}>Available</button>
-      <button onClick={updateUnavail}>NotAvailable</button>
-      {item.map((data) => (
-        <All foodname={data.foodname} foodid={data.foodid} ofs={data.ofs} />
-      ))}
+    <div className="home">
+      <Link to="/all">
+        <button>All</button>
+      </Link>
+      <Link to="/avail">
+        <button>Available</button>
+      </Link>
+      <Link to="/notavail">
+        <button>NotAvailable</button>
+      </Link>
     </div>
   )
 }
